@@ -31,7 +31,7 @@ step20:
 ```
 
 ---
-- main.ts
+- articles/src/main.ts
 ```ts
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
@@ -44,7 +44,7 @@ bootstrap();
 
 ```
 ---
-- app.module.ts
+- articles/src/app.module.ts
 ```ts
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
@@ -63,7 +63,7 @@ export class AppModule {}
 ```
 
 ---
-- users.module.ts
+- articles/src/users/users.module.ts
 ```ts
 import { Module } from "@nestjs/common";
 import { UsersResolver } from "./users.resolvers";
@@ -77,7 +77,7 @@ export class UsersModule{}
 ```
 
 ---
-- users.resolvers.ts
+- articles/src/users/users.resolvers.ts
 ```ts
 import { Resolver, Query, Args, Mutation } from "@nestjs/graphql";
 import { GetUserArgs } from "./dto/args/get-user.args";
@@ -117,7 +117,7 @@ export class UsersResolver{
 }
 ```
 ---
-- users.services.ts
+- articles/src/users/users.services.ts
 ```ts
 import { Injectable } from "@nestjs/common";
 import { v4 as uuidv4 } from 'uuid';
@@ -161,7 +161,7 @@ export class UsersService{
 
 ```
 ---
-- user.ts
+- articles/src/users/models/user.ts
 ```ts
 import { Field, Int, ObjectType } from "@nestjs/graphql";
 
@@ -183,7 +183,7 @@ export class User{
 }
 ```
 ---
-- get-user.args.ts
+- articles/src/users/dto/args/get-user.args.ts
 ```ts
 import { ArgsType, Field } from "@nestjs/graphql";
 import { IsNotEmpty } from "class-validator";
@@ -197,7 +197,7 @@ export class GetUserArgs {
 
 ```
 ---
-- get-users.args.ts
+- articles/src/users/dto/args/get-users.args.ts
 ```ts
 import { ArgsType, Field } from "@nestjs/graphql";
 import { IsArray } from "class-validator";
@@ -211,7 +211,7 @@ export class GetUsersArgs {
 
 ```
 ---
-- create-user-input.ts
+- articles/src/users/dto/input/create-user-input.ts
 ```ts
 import { Field, InputType } from "@nestjs/graphql";
 import {  IsEmail, IsNotEmpty } from "class-validator";
@@ -230,7 +230,7 @@ export class CreateUserInput{
 }
 ```
 ---
-- delete-user-input.ts
+- articles/src/users/dto/input/delete-user-input.ts
 ```ts
 import { Field, InputType } from "@nestjs/graphql";
 import {  IsNotEmpty } from "class-validator";
@@ -245,7 +245,7 @@ export class DeleteUserInput{
 }
 ```
 ---
-- update-user-input.ts
+- articles/src/users/dto/input/update-user-input.ts
 ```ts
 import { Field, InputType } from "@nestjs/graphql";
 import {  IsNotEmpty,  IsOptional } from "class-validator";
